@@ -1,0 +1,14 @@
+{% extends "sports/base.html" %}
+{% block content %}
+
+<div class="card" style="max-width:520px;">
+  <h1 style="font-size:40px; margin:0 0 10px;">Entrar</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="chip" style="border:0;">Entrar</button>
+  </form>
+</div>
+
+{% endblock %}

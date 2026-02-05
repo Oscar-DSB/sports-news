@@ -1,0 +1,63 @@
+{% extends "sports/base.html" %}
+{% block content %}
+  <h1 style="font-size:44px;margin:8px 0 6px;">F1</h1>
+  <div style="color:#64748b;font-weight:800;margin-bottom:14px;">Clasificación + próximos GP</div>
+
+  <div class="tabs">
+    <a class="btn" href="#">GP Anteriores</a>
+    <a class="btn btn-active" href="#">Próximos GP</a>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h2 style="margin:0 0 12px;">Clasificación de pilotos</h2>
+
+    <div style="overflow:auto;">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr style="text-align:left;color:#64748b;font-weight:900;">
+            <th style="padding:10px 8px;">#</th>
+            <th style="padding:10px 8px;">PILOTO</th>
+            <th style="padding:10px 8px;">EQUIPO</th>
+            <th style="padding:10px 8px;">PUNTOS</th>
+            <th style="padding:10px 8px;">GAP</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in standings %}
+          <tr style="border-top:1px solid rgba(15,23,42,.08);">
+            <td style="padding:10px 8px;font-weight:900;">{{ r.pos }}</td>
+            <td style="padding:10px 8px;font-weight:900;">{{ r.driver }}</td>
+            <td style="padding:10px 8px;color:#64748b;font-weight:800;">{{ r.team }}</td>
+            <td style="padding:10px 8px;font-weight:900;">{{ r.points }}</td>
+            <td style="padding:10px 8px;color:#64748b;font-weight:800;">{{ r.gap }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h2 style="margin:0 0 12px;">Calendario</h2>
+    <div style="overflow:auto;">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr style="text-align:left;color:#64748b;font-weight:900;">
+            <th style="padding:10px 8px;">FECHA</th>
+            <th style="padding:10px 8px;">GRAN PREMIO</th>
+            <th style="padding:10px 8px;">LUGAR</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for gp in calendar %}
+          <tr style="border-top:1px solid rgba(15,23,42,.08);">
+            <td style="padding:10px 8px;font-weight:900;">{{ gp.date }}</td>
+            <td style="padding:10px 8px;font-weight:900;">{{ gp.gp }}</td>
+            <td style="padding:10px 8px;color:#64748b;font-weight:800;">{{ gp.place }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

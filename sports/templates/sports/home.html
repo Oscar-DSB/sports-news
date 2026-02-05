@@ -1,0 +1,19 @@
+{% extends "sports/base.html" %}
+{% block content %}
+
+  <h1 style="font-size:48px; margin:16px 0 6px;">Elige un deporte</h1>
+  <p style="color:var(--muted); font-weight:700; margin:0 0 14px;">
+    Selecciona un deporte para ver partidos, resultados o clasificaciones.
+  </p>
+
+  <div class="grid">
+    {% for s in sports %}
+      <a class="sportCard" href="{% url 'sport_detail' s.slug %}">
+        <div class="sportIcon">{{ s.icon }}</div>
+        <div class="sportTitle">{{ s.name }}</div>
+        <div class="sportLink">Ver detalles</div>
+      </a>
+    {% endfor %}
+  </div>
+
+{% endblock %}

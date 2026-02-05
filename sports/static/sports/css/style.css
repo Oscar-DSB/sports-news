@@ -1,0 +1,169 @@
+:root{
+  --bg1:#f6f8ff;
+  --bg2:#f7f7fb;
+  --txt:#0f172a;
+  --muted:#64748b;
+  --card:#ffffff;
+  --shadow: 0 10px 30px rgba(2,6,23,.08);
+  --radius: 18px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--txt);
+  background: radial-gradient(1000px 400px at 20% 0%, rgba(99,102,241,.16), transparent 60%),
+              radial-gradient(900px 400px at 90% 10%, rgba(236,72,153,.12), transparent 55%),
+              linear-gradient(180deg, var(--bg1), var(--bg2));
+}
+
+.container{ width:min(980px, 92%); margin:0 auto; }
+
+.topbar{
+  position:sticky; top:0;
+  background:rgba(255,255,255,.72);
+  backdrop-filter: blur(12px);
+  border-bottom:1px solid rgba(15,23,42,.06);
+}
+.topbar__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+}
+.brand{ font-weight:800; text-decoration:none; color:var(--txt); letter-spacing:.2px; }
+.nav a{
+  margin-left:14px; text-decoration:none; color:var(--muted); font-weight:600;
+}
+.nav a:hover{ color:var(--txt); }
+.chip{
+  padding:8px 12px; border-radius:999px;
+  background:rgba(15,23,42,.06);
+}
+
+.hero{ padding:34px 0 10px; }
+.hero h1{ margin:0 0 6px; font-size:38px; letter-spacing:-.6px; }
+.hero p{ margin:0; color:var(--muted); }
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap:14px;
+  padding:18px 0 40px;
+}
+@media (max-width: 900px){ .grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width: 520px){ .grid{grid-template-columns:1fr;} }
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+  text-decoration:none;
+  color:var(--txt);
+  border:1px solid rgba(15,23,42,.06);
+}
+.card__icon{ font-size:30px; }
+.card__title{ margin-top:10px; font-size:18px; font-weight:800; }
+.card__sub{ margin-top:6px; color:var(--muted); font-weight:600; }
+
+.headerRow{
+  display:flex; align-items:flex-start; justify-content:space-between;
+  margin:26px 0 18px;
+}
+.h1{ margin:0; font-size:40px; letter-spacing:-.8px; }
+.muted{ margin:8px 0 0; color:var(--muted); }
+
+.filters{ display:flex; gap:10px; }
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(15,23,42,.12);
+  text-decoration:none;
+  color:var(--txt);
+  background:#fff;
+  font-weight:700;
+}
+.btn--active{
+  background:#0f172a; color:#fff; border-color:#0f172a;
+}
+
+.list{ display:flex; flex-direction:column; gap:12px; padding-bottom:40px; }
+.match{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 18px;
+  border-radius:16px;
+  background:#fff;
+  border:1px solid rgba(15,23,42,.06);
+  box-shadow: var(--shadow);
+  text-decoration:none;
+  color:var(--txt);
+}
+.match__teams{ display:flex; gap:10px; align-items:center; font-size:16px; }
+.vs{ color:var(--muted); font-weight:700; }
+.match__meta{ display:flex; gap:10px; align-items:center; color:var(--muted); font-weight:700; }
+.dot{ opacity:.5; }
+.scorepill{
+  padding:6px 10px;
+  border-radius:999px;
+  background:#0f172a;
+  color:#fff;
+  font-weight:900;
+}
+.badge{
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:800;
+  border:1px solid rgba(15,23,42,.08);
+  background:rgba(15,23,42,.04);
+}
+.badge--live{ background:rgba(239,68,68,.10); color:#ef4444; }
+.badge--fin{ background:rgba(16,185,129,.10); color:#10b981; }
+.badge--sch{ background:rgba(59,130,246,.10); color:#3b82f6; }
+.badge--post{ background:rgba(245,158,11,.12); color:#f59e0b; }
+
+.resultText{ color:var(--txt); font-weight:800; }
+
+.tableWrap{
+  background:#fff;
+  border:1px solid rgba(15,23,42,.06);
+  border-radius:16px;
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.tbl{
+  width:100%;
+  border-collapse:collapse;
+}
+.tbl th, .tbl td{
+  padding:14px 16px;
+  border-bottom:1px solid rgba(15,23,42,.06);
+  text-align:left;
+}
+.tbl thead th{
+  background:rgba(15,23,42,.03);
+}
+
+.footer{
+  padding:28px 0;
+  color:var(--muted);
+}
+.sportCard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sportCard:hover {
+  transform: translateY(-2px);
+}
+.link-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}

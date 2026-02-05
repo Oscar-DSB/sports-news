@@ -1,0 +1,45 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ==========================
+# Virtual Environments
+# ==========================
+myworld/
+venv/
+.env/
+.venv/
+
+# ==========================
+# Django
+# ==========================
+db.sqlite3
+*.log
+
+media/
+staticfiles/
+
+# Secret files
+.env
+
+# ==========================
+# IDE (PyCharm / VSCode)
+# ==========================
+.idea/
+.vscode/
+*.iml
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Migration cache (optional)
+# ==========================
+*.sqlite3-journal

@@ -1,0 +1,33 @@
+{% extends "sports/base.html" %}
+{% block content %}
+
+<div class="card">
+  <h1 style="font-size:40px; margin:0 0 8px;">Miembros</h1>
+  <p style="color:var(--muted); font-weight:700; margin:0 0 14px;">
+    Solo admins/staff. Muestra qué está viendo cada usuario.
+  </p>
+
+  <div class="list">
+    {% for p in profiles %}
+      <div class="match" style="justify-content:space-between;">
+        <div>
+          <div style="font-weight:900;">{{ p.user.username }}</div>
+          <div class="muted">
+            Viendo:
+            {% if p.watching_sport %}
+              <b>{{ p.watching_sport.name }}</b>
+            {% else %}
+              <b>Nada aún</b>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="muted" style="font-weight:800;">
+          {{ p.updated_at|date:"d/m/Y H:i" }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

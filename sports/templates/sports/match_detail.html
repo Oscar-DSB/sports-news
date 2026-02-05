@@ -1,0 +1,32 @@
+{% extends "sports/base.html" %}
+{% block content %}
+  <div class="card">
+    <h1 style="margin:0 0 10px;font-size:34px;">
+      {{ m.home_team.name }} <span class="muted">vs</span> {{ m.away_team.name }}
+    </h1>
+
+    <div class="muted" style="margin-bottom:12px;">
+      {{ m.sport.name }} · {{ m.date }} · {{ m.time|time:"H:i" }}
+    </div>
+
+    {% if m.status == "finished" %}
+      <span class="pill pill-finished">Finalizado</span>
+    {% elif m.status == "live" %}
+      <span class="pill pill-live">● En directo</span>
+    {% else %}
+      <span class="pill pill-scheduled">Programado</span>
+    {% endif %}
+
+    {% if m.home_score != None and m.away_score != None %}
+      <div style="margin-top:14px;font-size:26px;font-weight:900;">
+        {{ m.home_score }} - {{ m.away_score }}
+      </div>
+    {% endif %}
+
+    {% if m.result_text and m.sport.slug in sports_with_text %}
+      <div style="margin-top:12px;" class="muted">
+        {{ m.result_text }}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

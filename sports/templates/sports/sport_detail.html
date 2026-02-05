@@ -1,0 +1,54 @@
+{% extends "sports/base.html" %}
+{% block content %}
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;">
+    <div>
+      <h1 style="font-size:44px;margin:8px 0 6px;">{{ sport.name }}</h1>
+      <div style="color:#64748b;font-weight:800;">
+        Vista: {{ title }}
+      </div>
+    </div>
+
+    <div class="tabs">
+      <a class="btn {% if filtro == 'prev' %}btn-active{% endif %}" href="?filter=prev">Anteriores</a>
+      <a class="btn {% if filtro == 'today' %}btn-active{% endif %}" href="?filter=today">Hoy</a>
+      <a class="btn {% if filtro == 'next' %}btn-active{% endif %}" href="?filter=next">Próximos</a>
+    </div>
+  </div>
+
+  {% if matches %}
+    <div class="list">
+      {% for m in matches %}
+        <a class="match" href="/match/{{ m.id }}/">
+          <div>
+            <div class="teams">{{ m.home_team.name }} <span class="muted">vs</span> {{ m.away_team.name }}</div>
+
+            {% if m.result_text and sport.slug in sports_with_text %}
+              <div class="muted" style="margin-top:6px;">{{ m.result_text }}</div>
+            {% endif %}
+          </div>
+
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="muted">{{ m.time|time:"H:i" }}</div>
+
+            {% if m.status == "finished" %}
+              <span class="pill pill-finished">Finalizado</span>
+            {% elif m.status == "live" %}
+              <span class="pill pill-live">● En directo</span>
+            {% else %}
+              <span class="pill pill-scheduled">Programado</span>
+            {% endif %}
+
+            {% if m.home_score != None and m.away_score != None %}
+              <div class="score">{{ m.home_score }} - {{ m.away_score }}</div>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="card" style="margin-top:18px;">
+      No hay eventos para este filtro.
+    </div>
+  {% endif %}
+{% endblock %}
+

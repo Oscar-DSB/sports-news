@@ -109,10 +109,10 @@ http://127.0.0.1:8000/
 ## 📄 Documentación y demostración
 
 - 📘 Memoria del proyecto (PDF):
-  👉 [Descargar Memoria SportsNews](.docs/Memoria_Practica4_SportsNews_Oscar.pdf)
+  👉 [Descargar Memoria SportsNews](/docs/Memoria_Practica4_SportsNews_Oscar.pdf)
 
 - 🎥 Vídeo de demostración:
-  👉 [Descargar Video SportsNews](.docs/Video%20SportsNews.mp4)
+  👉 [Descargar Video SportsNews](/docs/Video%20SportsNews.mp4)
 
 ---
 
